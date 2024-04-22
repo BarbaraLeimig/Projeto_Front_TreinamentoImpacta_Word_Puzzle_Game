@@ -1,6 +1,7 @@
 buzz.defaults.formats = [ 'ogg', 'mp3' ];
 buzz.defaults.preload = 'metadata';
 
+// array com os conteúdos para as telas dos bichinhos
 var games = [
     { img: 'img/koala.png', color:'#176580', word: 'koala', sound: '' },
     { img: 'img/elephant1.png', color:'#a36513', word: 'elephant', sound: 'sounds/elephant' },
@@ -14,11 +15,13 @@ var games = [
     { img: 'img/lion1.png', color:'#dd992d', word: 'lion', sound: 'sounds/lion' }
 ];
 
+// definição das variáveis
 var winSound        = new buzz.sound('sounds/win' ),
     errorSound      = new buzz.sound('sounds/error' ),
     alphabetSounds  = {},
-    alphabet        = 'abcdefghijklmnopqrstuvwxyz'.split( '' );
+    alphabet        = 'abcdefghijklmnopqrstuvwxyz'.split( '' ); //divide a string em substrings
 
+// laço para percorrer a variável que contém as letras e associar cada letra ao som correspondente
 for( var i in alphabet ) {
     var letter = alphabet[ i ];
     alphabetSounds[ letter ] = new buzz.sound('sounds/kid/'+ letter );
@@ -39,18 +42,21 @@ $( function() {
         return false 
     });
 
+    // função para passar para o próximo bichinho
     $( '#next' ).click( function() {
         refreshGame();
         buildGame( ++idx ); 
         return false;
     });
 
+    // função para voltar para o bichinho anterior
     $( '#previous' ).click( function() {
        refreshGame();
        buildGame( --idx ); 
        return false;
     });
 
+    // função para definir o leveis do jogo
     $( '#level' ).click( function() {
         if ( $( this ).text() == 'easy' ) {
             $( this ).text( 'hard' );
@@ -62,11 +68,13 @@ $( function() {
         return false;
     });
 
+    // função para atualizar o jogo
     function refreshGame() {
         $( '#models' ).html( '' );
         $( '#letters' ).html( '' );
     }
 
+    // função responsável por contruir os processos do jogo
     function buildGame( x ) {
         if ( x > games.length - 1 ) {
             idx = 0;
@@ -98,7 +106,7 @@ $( function() {
 
         // Build model
         var modelLetters = game.word.split( '' );
-
+        // cria a lista que contem as letras que formam a palavra nome do animal
         for( var i in modelLetters ) {
             var letter = modelLetters[ i ];
             $models.append( '<li>' + letter + '</li>' );
