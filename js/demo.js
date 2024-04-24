@@ -22,7 +22,7 @@ var games = [
     { img: 'img/pig.png', color:'#FC649C', word: 'pig', sound: 'sounds/pig' },
     { img: 'img/penguin.png', color:'#cbcbcb', word: 'penguin', sound: '' },
     { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' },
-    { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' } // ALTERAR
+    { img: 'img/ladybug.png', color:'#f22939', word: 'ladybug', sound: '' } // ALTERAR
 ];
 
 // definição das variáveis
