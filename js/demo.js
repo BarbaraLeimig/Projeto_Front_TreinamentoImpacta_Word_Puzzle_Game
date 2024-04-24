@@ -1,7 +1,7 @@
 buzz.defaults.formats = [ 'ogg', 'mp3' ];
 buzz.defaults.preload = 'metadata';
 
-// array com os conteúdos para as telas dos bichinhos
+// array de objetos com os conteúdos para as telas dos bichinhos
 var games = [
     { img: 'img/koala.png', color:'#176580', word: 'koala', sound: '' },
     { img: 'img/elephant1.png', color:'#a36513', word: 'elephant', sound: 'sounds/elephant' },
@@ -12,7 +12,16 @@ var games = [
     { img: 'img/rabbit.png', color:'#c81f27', word: 'rabbit', sound: '' },
     { img: 'img/tiger.png', color:'#b3eef4', word: 'tiger', sound: 'sounds/meow' },
     { img: 'img/turtle.png', color:'#d5ea86', word: 'turtle', sound: '' },
-    { img: 'img/lion1.png', color:'#dd992d', word: 'lion', sound: 'sounds/lion' }
+    { img: 'img/dog.png', color:'#fc8404', word: 'dog', sound: 'sounds/dog' },
+    { img: 'img/bee.png', color:'#fcc804', word: 'bee', sound: 'sounds/bee' },
+    { img: 'img/butterfly.png', color:'#e0388c', word: 'butterfly', sound: '' },
+    { img: 'img/cat.png', color:'#505050', word: 'cat', sound: 'sounds/cat' },
+    { img: 'img/fox.png', color:'#f78b12', word: 'fox', sound: 'sounds/fox' },
+    { img: 'img/frog.png', color:'#4bbc54', word: 'frog', sound: 'sounds/frog' },
+    { img: 'img/panda.png', color:'#ececec', word: 'panda', sound: '' },
+    { img: 'img/pig.png', color:'#FC649C', word: 'pig', sound: 'sounds/pig' },
+    { img: 'img/penguin.png', color:'#cbcbcb', word: 'penguin', sound: '' },
+    { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' }
 ];
 
 // definição das variáveis
@@ -27,6 +36,7 @@ for( var i in alphabet ) {
     alphabetSounds[ letter ] = new buzz.sound('sounds/kid/'+ letter );
 }
 
+// Funções principais para o funcionamento da aplicação
 $( function() {
     if ( !buzz.isSupported() ) {
         $('#warning').show();
