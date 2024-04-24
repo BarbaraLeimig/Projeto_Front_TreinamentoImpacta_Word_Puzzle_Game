@@ -21,7 +21,8 @@ var games = [
     { img: 'img/panda.png', color:'#ececec', word: 'panda', sound: '' },
     { img: 'img/pig.png', color:'#FC649C', word: 'pig', sound: 'sounds/pig' },
     { img: 'img/penguin.png', color:'#cbcbcb', word: 'penguin', sound: '' },
-    { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' }
+    { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' },
+    { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' } // ALTERAR
 ];
 
 // definição das variáveis
@@ -122,16 +123,16 @@ $( function() {
             $models.append( '<li>' + letter + '</li>' );
         }
 
-        var letterWidth = $models.find( 'li' ).outerWidth( true );
+        var letterWidth = $models.find( 'li' ).outerWidth( true ); // inclui margens, padding e calcula o tamanho de cada letra
 
-        $models.width( letterWidth * $models.find( 'li' ).length );
+        $models.width( letterWidth * $models.find( 'li' ).length ); // calcula o tamanho total do elemento (palavra) para ajustar a largura da models
 
         // Build shuffled letters
         var letters  = game.word.split( '' ),
             shuffled = letters.sort( function() { return Math.random() < 0.5 ? -1 : 1 });
 
         for( var i in shuffled ) {
-            $letters.append( '<li class="draggable">' + shuffled[ i ] + '</li>' );
+            $letters.append( '<li class="draggable">' + shuffled[ i ] + '</li>' ); // exibe as letras arrastáveis misturadas
         }
 
         $letters.find( 'li' ).each( function( i ) {
@@ -159,6 +160,7 @@ $( function() {
             stack: '#letters li'
         });
 
+        // responsável por verificar o encaixe das letras na posição correta
         $models.find( 'li' ).droppable( {
             accept:     '.draggable',
             hoverClass: 'hover',
@@ -178,6 +180,8 @@ $( function() {
                     
                     if ( score == modelLetters.length ) {
                         winGame();
+                        increasePoints();
+                        checkWin();
                     }    
                 } else {
                     ui.draggable.draggable( 'option', 'revert', true );
@@ -204,6 +208,7 @@ $( function() {
             }, i * 300 );
         });
 
+        // passa para a nova model após o usuário acertar a anterior
         setTimeout( function() {
             refreshGame();
             buildGame( ++idx );
@@ -219,6 +224,28 @@ $( function() {
             'transform': 'rotate(' + angle + 'deg)'
         });
     }
+
+        // Sessão para construir a pontuação do usuário dentro do jogo
+        var currentPoints = 0;
+        var maxPoints = 200;
+
+        function updatePoints() {
+            $('#score').text(`Sua pontuação: ${currentPoints} / ${maxPoints}`);
+        }
+
+        function increasePoints() {
+            currentPoints += 10;
+            updatePoints();
+            checkWin();
+        }
+
+        updatePoints();
+
+        function checkWin() {
+            if (currentPoints == maxPoints) {
+                $('#result').text('Parabéns! Você acertou todos os nomes de animais em inglês!')
+            }
+        }
 
     buildGame( idx );
 });
