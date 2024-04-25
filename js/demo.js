@@ -231,7 +231,8 @@ $( function() {
 
     function checkWin() {
         if (currentPoints == maxPoints) {
-            $score.append(' <li> Parabéns! Você acertou todos os nomes de animais em inglês! </li>');
+            $('#result').text('Parabéns! Você acertou todos os animais!');
+            //$score.append(' <li> Parabéns! Você acertou todos os nomes de animais em inglês! </li>');
             resetPoints();
         }
     }

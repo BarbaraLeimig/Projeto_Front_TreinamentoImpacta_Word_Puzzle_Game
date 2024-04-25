@@ -130,8 +130,12 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 #score {
+  font-size: xx-large;
 	margin-top: 245px;
 	text-align: center;
+}
+#result {
+  font-size: xx-large;
 }
 #next,
 #previous {
