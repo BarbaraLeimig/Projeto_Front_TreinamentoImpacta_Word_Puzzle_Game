@@ -134,8 +134,8 @@ body {
 	margin-top: 245px;
 	text-align: center;
 }
-#result {
-  font-size: xx-large;
+#hint {
+  margin-top: 50px;
 }
 #next,
 #previous {

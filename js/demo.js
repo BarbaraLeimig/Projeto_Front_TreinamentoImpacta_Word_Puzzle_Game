@@ -229,14 +229,6 @@ $( function() {
     var currentPoints = 0;
     var maxPoints = 50;
 
-    function checkWin() {
-        if (currentPoints == maxPoints) {
-            $('#result').text('Parabéns! Você acertou todos os animais!');
-            //$score.append(' <li> Parabéns! Você acertou todos os nomes de animais em inglês! </li>');
-            resetPoints();
-        }
-    }
-
     function updatePoints() {
         $('#score').text(`Sua pontuação: ${currentPoints} / ${maxPoints}`);
         checkWin();
@@ -251,6 +243,14 @@ $( function() {
     function resetPoints(){
         currentPoints = 0;
         updatePoints();
+    }
+    
+    function checkWin() {
+        if (currentPoints == maxPoints) {
+            alert('Parabéns! Você acertou todos os animais!');
+            //$score.append(' <li> Parabéns! Você acertou todos os nomes de animais em inglês! </li>');
+            resetPoints();
+        }
     }
 
     updatePoints();
