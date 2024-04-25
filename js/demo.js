@@ -7,8 +7,8 @@ var games = [
     { img: 'img/elephant1.png', color:'#a36513', word: 'elephant', sound: 'sounds/elephant' },
     { img: 'img/monkey.png', color:'#ffc48b', word: 'monkey', sound: 'sounds/monkey' },
     { img: 'img/bear.png', color:'#807148', word: 'bear', sound: 'sounds/bear' },
-    { img: 'img/horse.png', color:'#bc9e6c', word: 'horse', sound: 'sounds/horse' },
-    { img: 'img/bull.png', color:'#ff5f09', word: 'bull', sound: 'sounds/bull' },
+    { img: 'img/horse.png', color:'#bc9e6c', word: 'horse', sound: 'sounds/horse' }
+    /* { img: 'img/bull.png', color:'#ff5f09', word: 'bull', sound: 'sounds/bull' },
     { img: 'img/rabbit.png', color:'#c81f27', word: 'rabbit', sound: '' },
     { img: 'img/tiger.png', color:'#b3eef4', word: 'tiger', sound: 'sounds/meow' },
     { img: 'img/turtle.png', color:'#d5ea86', word: 'turtle', sound: '' },
@@ -22,7 +22,7 @@ var games = [
     { img: 'img/pig.png', color:'#FC649C', word: 'pig', sound: 'sounds/pig' },
     { img: 'img/penguin.png', color:'#cbcbcb', word: 'penguin', sound: '' },
     { img: 'img/sheep.png', color:'#e5ad9e', word: 'sheep', sound: 'sounds/sheep' },
-    { img: 'img/ladybug.png', color:'#f22939', word: 'ladybug', sound: '' } // ALTERAR
+    { img: 'img/ladybug.png', color:'#f22939', word: 'ladybug', sound: '' } */
 ];
 
 // definição das variáveis
@@ -38,7 +38,7 @@ for( var i in alphabet ) {
 }
 
 // Funções principais para o funcionamento da aplicação
-$( function() {
+$( function() {  
     if ( !buzz.isSupported() ) {
         $('#warning').show();
     }
@@ -48,6 +48,7 @@ $( function() {
         $picture    = $( '#picture' ),
         $models     = $( '#models' ),
         $letters    = $( '#letters' );
+        $score      = $( '#score' );
 
     $( 'body' ).bind('selectstart', function() { 
         return false 
@@ -181,7 +182,6 @@ $( function() {
                     if ( score == modelLetters.length ) {
                         winGame();
                         increasePoints();
-                        checkWin();
                     }    
                 } else {
                     ui.draggable.draggable( 'option', 'revert', true );
@@ -225,27 +225,34 @@ $( function() {
         });
     }
 
-        // Sessão para construir a pontuação do usuário dentro do jogo
-        var currentPoints = 0;
-        var maxPoints = 200;
+    // Sessão para construir a pontuação do usuário dentro do jogo
+    var currentPoints = 0;
+    var maxPoints = 50;
 
-        function updatePoints() {
-            $('#score').text(`Sua pontuação: ${currentPoints} / ${maxPoints}`);
+    function checkWin() {
+        if (currentPoints == maxPoints) {
+            $score.append(' <li> Parabéns! Você acertou todos os nomes de animais em inglês! </li>');
+            resetPoints();
         }
+    }
 
-        function increasePoints() {
-            currentPoints += 10;
-            updatePoints();
-            checkWin();
-        }
+    function updatePoints() {
+        $('#score').text(`Sua pontuação: ${currentPoints} / ${maxPoints}`);
+        checkWin();
+    }
 
+    function increasePoints() {
+        currentPoints += 10;
         updatePoints();
+        checkWin();
+    }
 
-        function checkWin() {
-            if (currentPoints == maxPoints) {
-                $('#result').text('Parabéns! Você acertou todos os nomes de animais em inglês!')
-            }
-        }
+    function resetPoints(){
+        currentPoints = 0;
+        updatePoints();
+    }
 
+    updatePoints();
+    
     buildGame( idx );
 });
