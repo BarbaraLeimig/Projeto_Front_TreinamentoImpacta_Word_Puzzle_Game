@@ -52,6 +52,14 @@ body {
 #footer {
   font: 14px/30px "Yanone Kaffeesatz", Arial, Serif;
   width: 640px;
+  margin: 20px auto;
+  position: relative;
+  padding: 0;
+  
+}
+#footer_no_flex {
+  font: 14px/30px "Yanone Kaffeesatz", Arial, Serif;
+  width: 640px;
   margin: 0px auto;
   position: relative;
   padding: 0;
@@ -124,18 +132,17 @@ body {
 #models.hard li {
   color: rgba(0, 0, 0, 0);
 }
+#models.veryHard li {
+  color: rgba(0, 0, 0, 0);
+}
 #models li.hover {
   background: #000;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 #score {
-  font-size: xx-large;
 	margin-top: 245px;
 	text-align: center;
-}
-#hint {
-  margin-top: 50px;
 }
 #next,
 #previous {
@@ -167,7 +174,21 @@ body {
   cursor: pointer;
   padding: 0 5px;
 }
-
+#level_very_hard {
+  cursor: pointer;
+  margin-left: 570px;
+  font: 100%/20px "Permanent Marker", Arial, Serif;
+  color: rgba(0, 0, 0, 0.5) !important;
+  font-size: 150%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 60%;
+}
+#voltar {
+  cursor: pointer;
+  font: 100%/20px "Permanent Marker", Arial, Serif;
+}
 #ad {
   position: absolute;
   right: 10px;
