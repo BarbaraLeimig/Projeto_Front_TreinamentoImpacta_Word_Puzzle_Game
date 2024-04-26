@@ -4,11 +4,11 @@ buzz.defaults.preload = 'metadata';
 // array de objetos com os conteúdos para as telas dos bichinhos
 var games = [
     { img: 'img/koala.png', color:'#176580', word: 'koala', sound: '' },
-    { img: 'img/elephant1.png', color:'#a36513', word: 'elephant', sound: 'sounds/elephant' },
     { img: 'img/monkey.png', color:'#ffc48b', word: 'monkey', sound: 'sounds/monkey' },
     { img: 'img/bear.png', color:'#807148', word: 'bear', sound: 'sounds/bear' },
-    { img: 'img/horse.png', color:'#bc9e6c', word: 'horse', sound: 'sounds/horse' }
-    /* { img: 'img/bull.png', color:'#ff5f09', word: 'bull', sound: 'sounds/bull' },
+    { img: 'img/horse.png', color:'#bc9e6c', word: 'horse', sound: 'sounds/horse' },
+    { img: 'img/bull.png', color:'#ff5f09', word: 'bull', sound: 'sounds/bull' },
+    /*{ img: 'img/elephant1.png', color:'#a36513', word: 'elephant', sound: 'sounds/elephant' },
     { img: 'img/rabbit.png', color:'#c81f27', word: 'rabbit', sound: '' },
     { img: 'img/tiger.png', color:'#b3eef4', word: 'tiger', sound: 'sounds/meow' },
     { img: 'img/turtle.png', color:'#d5ea86', word: 'turtle', sound: '' },
@@ -47,7 +47,7 @@ $( function() {
         $container  = $( '#container' ),
         $picture    = $( '#picture' ),
         $models     = $( '#models' ),
-        $letters    = $( '#letters' );
+        $letters    = $( '#letters' ),
         $score      = $( '#score' );
 
     $( 'body' ).bind('selectstart', function() { 
@@ -229,6 +229,13 @@ $( function() {
     var currentPoints = 0;
     var maxPoints = 50;
 
+    function checkWin() {
+        if (currentPoints == maxPoints) {
+            alert('Parabéns! Você acertou todos os nomes de animais em inglês!');
+            resetPoints();
+        }
+    }
+
     function updatePoints() {
         $('#score').text(`Sua pontuação: ${currentPoints} / ${maxPoints}`);
         checkWin();
@@ -243,14 +250,6 @@ $( function() {
     function resetPoints(){
         currentPoints = 0;
         updatePoints();
-    }
-    
-    function checkWin() {
-        if (currentPoints == maxPoints) {
-            alert('Parabéns! Você acertou todos os animais!');
-            //$score.append(' <li> Parabéns! Você acertou todos os nomes de animais em inglês! </li>');
-            resetPoints();
-        }
     }
 
     updatePoints();
