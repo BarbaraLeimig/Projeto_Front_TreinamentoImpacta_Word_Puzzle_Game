@@ -98,6 +98,7 @@ $( function() {
         var game  = games[ idx ],
             score = 0;
 
+        // Criação do objeto de som
         var gameSound = new buzz.sound( game.sound );
         gameSound.play();
 
