@@ -2,7 +2,7 @@
 import { Animal } from './classAnimal.js';
 
 // Definição da classe GameApp que gerencia o jogo
-export class GameApp {
+export class VeryHardGameApp {
     constructor() {
         this.games = [
             new Animal('img/koala.png', '#176580', 'koala', ''),
@@ -39,6 +39,7 @@ export class GameApp {
         buzz.defaults.formats = ['ogg', 'mp3'];
         buzz.defaults.preload = 'metadata';
 
+        // Associa cada letra dentro do array de alfabeto com seu respectivo som
         for (let letter of this.alphabet) {
             this.alphabetSounds[letter] = new buzz.sound(`sounds/kid/${letter}`);
         }
@@ -247,5 +248,5 @@ $(function () {
         $('#warning').show();
     }
 
-    new GameApp();
+    new VeryHardGameApp();
 });

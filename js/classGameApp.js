@@ -39,6 +39,7 @@ export class GameApp {
         buzz.defaults.formats = ['ogg', 'mp3'];
         buzz.defaults.preload = 'metadata';
 
+        // Associa cada letra dentro do array de alfabeto com seu respectivo som
         for (let letter of this.alphabet) {
             this.alphabetSounds[letter] = new buzz.sound(`sounds/kid/${letter}`);
         }
@@ -151,7 +152,7 @@ export class GameApp {
 
                     // rotaciona as letras para que fiquem retas dentro das models
                     this.rotate(ui.draggable, 0);
-                    correctLetter ++; // incremento por letra correta
+                    correctLetter++; // incremento por letra correta
 
                     // verifica se a quantidade de letras corretas equivale ao tamnho do array que contém a palavra
                     if (correctLetter == modelLetters.length){
