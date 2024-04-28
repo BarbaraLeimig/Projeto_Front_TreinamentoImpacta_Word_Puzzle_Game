@@ -9,11 +9,26 @@ export class GameApp {
             new Animal('img/monkey.png', '#ffc48b', 'monkey', 'sounds/monkey'),
             new Animal('img/bear.png', '#807148', 'bear', 'sounds/bear'),
             new Animal('img/horse.png', '#bc9e6c', 'horse', 'sounds/horse'),
-            new Animal('img/bull.png', '#ff5f09', 'bull', 'sounds/bull')
+            new Animal('img/bull.png', '#ff5f09', 'bull', 'sounds/bull'),
+            new Animal('img/elephant1.png', '#a36513', 'elephant', 'sounds/elephant'),
+            new Animal('img/rabbit.png', '#c81f27', 'rabbit', ''),
+            new Animal('img/tiger.png', '#b3eef4', 'tiger', 'sounds/meow'),
+            new Animal('img/turtle.png', '#d5ea86', 'turtle', ''),
+            new Animal('img/dog.png', '#fc8404', 'dog', 'sounds/dog'),
+            new Animal('img/bee.png', '#fcc804', 'bee', 'sounds/bee'),
+            new Animal('img/butterfly.png', '#e0388c', 'butterfly', ''),
+            new Animal('img/cat.png', '#505050', 'cat', 'sounds/cat'),
+            new Animal('img/fox.png', '#f78b12', 'fox', 'sounds/fox'),
+            new Animal('img/frog.png', '#4bbc54', 'frog', 'sounds/frog'),
+            new Animal('img/panda.png', '#ececec', 'panda', ''),
+            new Animal('img/pig.png', '#FC649C', 'pig', 'sounds/pig'),
+            new Animal('img/penguin.png', '#cbcbcb', 'penguin', ''),
+            new Animal('img/sheep.png', '#e5ad9e', 'sheep', 'sounds/sheep'),
+            new Animal('img/ladybug.png', '#f22939', 'ladybug', '')
         ];
         this.idx = 0;
         this.currentPoints = 0;
-        this.maxPoints = 50;
+        this.maxPoints =200;
         this.alphabetSounds = {};
         this.alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
         this.initialize();
