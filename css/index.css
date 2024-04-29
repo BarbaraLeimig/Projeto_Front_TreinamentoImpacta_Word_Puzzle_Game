@@ -1,0 +1,38 @@
+body {
+    font-family: "Permanent Marker";
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.container { 
+    text-align: relative;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: "Permanent Marker";
+    background-color: #d81616;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+button:hover {
+    background-color: #3ed274;
+}
+
+#start-btn {
+    margin-top: 0px; 
+    margin-left: 10px; 
+}
